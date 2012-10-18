@@ -1,0 +1,20 @@
+/*
+ * Stepper Plugin
+ * @author Ben Plum
+ * @version 0.1
+ *
+ * Copyright © 2012 Ben Plum <mr@benplum.com>
+ * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+ */
+ 
+	.stepper { border-radius: 3px; margin: 0 0 10px 0; overflow: hidden; position: relative; width: 300px; }
+	.stepper .stepper-input { background: #F9F9F9; border: 1px solid #ccc; border-radius: 3px; color: #333; font-size: 13px; margin: 0; overflow: hidden; padding: 8px 10px; width: 100%; z-index: 49; }
+	.stepper:hover .stepper-input, .stepper .stepper-input:focus { background-color: #fff; }
+	.stepper .stepper-step { background: #eee url(../images/stepper-arrows.png) no-repeat; border: 1px solid #ccc; cursor: pointer; display: block; height: 50%; position: absolute; right: 0; text-indent: -99999px; width: 20px; z-index: 50; }
+	.stepper .stepper-step:hover { background-color: #F9F9F9; }
+	.stepper .stepper-step.up { background-position: center top; border-bottom: none; top: 0; }
+	.stepper .stepper-step.down { background-position: center bottom; bottom: 0; }
+	
+	.stepper.disabled .stepper-input { background: #fff; border-color: #eee; color: #ccc; }
+	.stepper.disabled .stepper-step,
+	.stepper.disabled .stepper-step:hover { background: #fff; border-color: #eee; cursor: default; }
