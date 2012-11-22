@@ -8,7 +8,7 @@
  */
  
 	.stepper { border-radius: 3px; margin: 0 0 10px 0; overflow: hidden; position: relative; width: 300px; }
-	.stepper .stepper-input { background: #F9F9F9; border: 1px solid #ccc; border-radius: 3px; color: #333; font-size: 13px; margin: 0; overflow: hidden; padding: 8px 10px; width: 100%; z-index: 49; }
+	.stepper .stepper-input { background: #F9F9F9; border: 1px solid #ccc; border-radius: 3px; color: #333; font-size: 13px; line-height: 1.2; margin: 0; overflow: hidden; padding: 9px 10px 10px; width: 100%; z-index: 49; }
 	.stepper:hover .stepper-input, .stepper .stepper-input:focus { background-color: #fff; }
 	.stepper .stepper-step { background: #eee url(../images/stepper-arrows.png) no-repeat; border: 1px solid #ccc; cursor: pointer; display: block; height: 50%; position: absolute; right: 0; text-indent: -99999px; width: 20px; z-index: 50; }
 	.stepper .stepper-step:hover { background-color: #F9F9F9; }
