@@ -1,5 +1,5 @@
 /*
- * Stepper Plugin
+ * Stepper Plugin [Formstone Library]
  * @author Ben Plum
  * @version 0.1
  *
