@@ -1,7 +1,7 @@
 /*
  * Stepper Plugin [Formstone Library]
  * @author Ben Plum
- * @version 0.1
+ * @version 0.1.1
  *
  * Copyright © 2012 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
@@ -177,7 +177,8 @@ if (jQuery) (function($) {
 		
 		if (value != originalValue) {
 			value = _roundDigits(value, data.digits);
-			data.$input.val(value);
+			data.$input.val(value)
+					   .trigger("change");
 			originalValue = value;
 		}
 		
