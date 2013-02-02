@@ -21,8 +21,9 @@
 		}
 	],
 	"docs": "http://www.benplum.com/formstone/stepper/",
+	"demo": "http://www.benplum.com/formstone/stepper/",
 	"download": "https://github.com/benplum/Stepper",
-	"bugs": "https://github.com/benplum/Boxer/Stepper",
+	"bugs": "https://github.com/benplum/Stepper/issues",
 	"dependencies": {
 		"jquery": ">=1.7"
 	}
