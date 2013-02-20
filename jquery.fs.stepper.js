@@ -1,7 +1,7 @@
 /*
  * Stepper Plugin [Formstone Library]
  * @author Ben Plum
- * @version 0.1.2
+ * @version 0.1.3
  *
  * Copyright © 2012 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
@@ -30,36 +30,31 @@ if (jQuery) (function($) {
 		
 		// Disable field
 		disable: function() {
-			var $items = $(this);
-			for (var i = 0, count = $items.length; i < count; i++) {
-				var $input = $items.eq(i);
-				var $stepper = $input.parent(".stepper");
+			return $(this).each(function(i) {
+				var $input = $(this),
+					$stepper = $input.parent(".stepper");
 				
 				$input.attr("disabled", "disabled");
 				$stepper.addClass("disabled");
-			}
-			return $items;
+			});
 		},
 		
 		// Enable field
 		enable: function() {
-			var $items = $(this);
-			for (var i = 0, count = $items.length; i < count; i++) {
-				var $input = $items.eq(i);
-				var $stepper = $input.parent(".stepper");
+			return $(this).each(function(i) {
+				var $input = $(this),
+					$stepper = $input.parent(".stepper");
 				
 				$input.attr("disabled", null);
 				$stepper.removeClass("disabled");
-			}
-			return $items;
+			});
 		},
 		
 		// Destroy stepper
 		destroy: function() {
-			var $items = $(this);
-			for (var i = 0, count = $items.length; i < count; i++) {
-				var $input = $items.eq(i);
-				var $stepper = $input.parent(".stepper");
+			return $(this).each(function(i) {
+				var $input = $(this),
+					$stepper = $input.parent(".stepper");
 				
 				// Unbind click events
 				$stepper.off(".stepper")
@@ -69,8 +64,7 @@ if (jQuery) (function($) {
 				// Restore DOM
 				$input.unwrap()
 					  .removeClass("stepper-input");
-			}
-			return $items;
+			});
 		}
 	};
 	
@@ -91,52 +85,47 @@ if (jQuery) (function($) {
 		var settings = $.extend({}, options, opts);
 		
 		// Apply to each element
-		var $items = $(this);
-		for (var i = 0, count = $items.length; i < count; i++) {
-			_build($items.eq(i), settings);
-		}
-		return $items;
-	}
-	
-	// Build each
-	function _build($input, opts) {
-		if (!$input.data("stepper")) {
-			var min = parseFloat($input.attr("min"));
-			var max = parseFloat($input.attr("max"));
-			var step = parseFloat($input.attr("step")) || 1;
+		return $(this).each(function(i) {
+			var $input = $(this);
 			
-			// Modify DOM
-			$input.addClass("stepper-input")
-				  .wrap('<div class="stepper ' + opts.customClass + '" />')
-				  .after('<span class="stepper-step up">Up</span><span class="stepper-step down">Down</span>');
-			
-			// Store plugin data
-			var $stepper = $input.parent(".stepper");
-			
-			// Check disabled
-			if ($input.is(":disabled")) {
-				$stepper.addClass("disabled");
+			if (!$input.data("stepper")) {
+				var min = parseFloat($input.attr("min")),
+					max = parseFloat($input.attr("max")),
+					step = parseFloat($input.attr("step")) || 1;
+				
+				// Modify DOM
+				$input.addClass("stepper-input")
+					  .wrap('<div class="stepper ' + settings.customClass + '" />')
+					  .after('<span class="stepper-step up">Up</span><span class="stepper-step down">Down</span>');
+				
+				// Store plugin data
+				var $stepper = $input.parent(".stepper");
+				
+				// Check disabled
+				if ($input.is(":disabled")) {
+					$stepper.addClass("disabled");
+				}
+				
+				var data = $.extend({
+					$stepper: $stepper,
+					$input: $input,
+					$steps: $stepper.find(".stepper-steps"),
+					min: (typeof min !== undefined && !isNaN(min)) ? min : false,
+					max: (typeof max !== undefined && !isNaN(max)) ? max : false,
+					step: (typeof step !== undefined && !isNaN(step)) ? step : 1
+				}, settings);
+				
+				data.digits = _significantDigits(data.step);
+				
+				// Bind click events
+				$stepper.on("mousedown.stepper", ".stepper-step", data, _stepDown)
+						.data("stepper", data);
+						/* .on("keyup.stepper", ".stepper-input", data, _keyUp) */
 			}
-			
-			var data = $.extend({
-				$stepper: $stepper,
-				$input: $input,
-				$steps: $stepper.find(".stepper-steps"),
-				min: (typeof min !== undefined && !isNaN(min)) ? min : false,
-				max: (typeof max !== undefined && !isNaN(max)) ? max : false,
-				step: (typeof step !== undefined && !isNaN(step)) ? step : 1
-			}, opts);
-			
-			data.digits = _significantDigits(data.step);
-			
-			// Bind click events
-			$stepper.on("mousedown.stepper", ".stepper-step", data, _stepDown)
-					/* .on("keyup.stepper", ".stepper-input", data, _keyUp) */
-					.data("stepper", data);
-		}
+		});
 	}
 	
-	// Mouse down
+	// Handle mouse down
 	function _stepDown(e) {
 		e.preventDefault();
 		e.stopPropagation();
@@ -154,7 +143,7 @@ if (jQuery) (function($) {
 		}
 	}
 	
-	// Mouse up
+	// Handle mouse up
 	function _stepUp(e) {
 		e.preventDefault();
 		e.stopPropagation();
