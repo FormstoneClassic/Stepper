@@ -1,7 +1,7 @@
 /*
  * Stepper Plugin [Formstone Library]
  * @author Ben Plum
- * @version 0.1.3
+ * @version 0.1.4
  *
  * Copyright © 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
