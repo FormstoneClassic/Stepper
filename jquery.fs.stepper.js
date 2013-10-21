@@ -1,7 +1,7 @@
 /*
  * Stepper Plugin [Formstone Library]
  * @author Ben Plum
- * @version 0.1.4
+ * @version 0.1.5
  *
  * Copyright © 2013 Ben Plum <mr@benplum.com>
  * Released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
@@ -134,7 +134,7 @@ if (jQuery) (function($) {
 		
 		var data = e.data;
 		
-		if (!data.$stepper.hasClass("disabled")) {
+		if (!data.$input.is(':disabled') && !data.$stepper.hasClass("disabled")) {
 			var direction = $(e.target).hasClass("up");
 			
 			_doStep(data, direction, true);

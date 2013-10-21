@@ -1,6 +1,6 @@
 {
 	"name": "Stepper",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "A jQuery plugin for cross browser number inputs. Part of the formstone library.",
 	"keywords": [
 		"javascript",
