@@ -1,31 +1,34 @@
 {
-	"name": "Stepper",
-	"version": "0.1.5",
-	"description": "A jQuery plugin for cross browser number inputs. Part of the formstone library.",
-	"keywords": [
-		"javascript",
-		"jquery",
-		"number",
-		"input",
-		"ui",
-		"formstone",
-		"benplum"
-	],
-	"authors": [
-		"Ben Plum"
-	],
-	"license": "MIT",
-	"homepage": "http://www.benplum.com/formstone/stepper/",
-	"main": [
-		"jquery.fs.stepper.css",
-		"jquery.fs.stepper.min.js",
-		"fs-stepper-arrows.png"
-	],
-	"ignore": [
-		"*.json"
-	],
-	"dependencies": {
-		"jquery": ">= 1.7.0"
-	},
-	"devDependencies": {}
+  "name": "Stepper",
+  "version": "3.0.0",
+  "description": "A jQuery plugin for cross browser number inputs. Part of the Formstone Library.",
+  "keywords": [
+    "javascript",
+    "jquery",
+    "number",
+    "input",
+    "ui",
+    "formstone",
+    "benplum"
+  ],
+  "license": "MIT",
+  "homepage": "http://formstone.it/stepper/",
+  "main": [
+    "jquery.fs.stepper.css",
+    "jquery.fs.stepper.min.js",
+    "fs-stepper-arrows.png"
+  ],
+  "ignore": [
+    "*.jquery.json",
+    "Gruntfile.js"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.0"
+  },
+  "devDependencies": {},
+  "author": {
+    "name": "Ben Plum",
+    "email": "mr@benplum.com",
+    "url": "http://www.benplum.com"
+  }
 }

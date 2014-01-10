@@ -1,8 +1,10 @@
-Stepper
-=======
+<a href="http://gruntjs.com" target="_blank"><img src="https://cdn.gruntjs.com/builtwith.png" alt="Built with Grunt"></a> 
+# Stepper 
 
-A jQuery plugin for cross browser number inputs. Part of the formstone library.
+A jQuery plugin for cross browser number inputs. Part of the Formstone Library. 
 
-[Documentation and Examples](http://www.benplum.com/projects/stepper/)
+- [Demo](http://formstone.it/components/Stepper/demo/index.html) 
+- [Documentation](http://formstone.it/stepper/) 
 
-Bower Support: `bower install Stepper`
+#### Bower Support 
+`bower install Stepper`

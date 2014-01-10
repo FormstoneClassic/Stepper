@@ -1,30 +1,35 @@
 {
-	"name": "stepper",
-	"title": "Stepper",
-	"description": "A jQuery plugin for cross browser number inputs. Part of the formstone library.",
-	"keywords": [
-		"number",
-		"input",
-		"ui",
-		"formstone",
-		"benplum"
-	],
-	"version": "0.1.5",
-	"author": {
-		"name": "Ben Plum",
-		"url": "http://www.benplum.com"
-	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://www.opensource.org/licenses/mit-license.php"
-		}
-	],
-	"docs": "http://www.benplum.com/formstone/stepper/",
-	"demo": "http://www.benplum.com/formstone/stepper/",
-	"download": "https://github.com/benplum/Stepper",
-	"bugs": "https://github.com/benplum/Stepper/issues",
-	"dependencies": {
-		"jquery": ">=1.7"
-	}
+  "name": "stepper",
+  "version": "3.0.0",
+  "title": "Stepper",
+  "author": {
+    "name": "Ben Plum",
+    "email": "mr@benplum.com",
+    "url": "http://www.benplum.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.7"
+  },
+  "description": "A jQuery plugin for cross browser number inputs. Part of the Formstone Library.",
+  "keywords": [
+    "number",
+    "input",
+    "form",
+    "ui",
+    "javascript",
+    "jquery",
+    "formstone",
+    "benplum"
+  ],
+  "docs": "http://formstone.it/stepper/",
+  "demo": "http://formstone.it/stepper/",
+  "download": "https://github.com/benplum/Stepper",
+  "bugs": "https://github.com/benplum/Stepper/issues",
+  "homepage": "http://formstone.it/stepper/"
 }

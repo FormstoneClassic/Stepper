@@ -1,11 +1,3 @@
-/* 
- * Stepper v3.0.0 - 2014-01-10 
- * A jQuery plugin for cross browser number inputs. Part of the Formstone Library. 
- * http://formstone.it/stepper/ 
- * 
- * Copyright 2014 Ben Plum; MIT Licensed 
- */ 
-
 	.stepper { border-radius: 3px; margin: 0 0 10px 0; overflow: hidden; position: relative; width: 300px; }
 	.stepper .stepper-input { background: #F9F9F9; border: 1px solid #ccc; border-radius: 3px; color: #333; font-size: 13px; line-height: 1.2; margin: 0; overflow: hidden; padding: 9px 10px 10px; width: 100%; z-index: 49; }
 	.stepper .stepper-input::-webkit-inner-spin-button, 
