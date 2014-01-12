@@ -1,5 +1,5 @@
 /* 
- * Stepper v3.0.0 - 2014-01-10 
+ * Stepper v3.0.0 - 2014-01-12 
  * A jQuery plugin for cross browser number inputs. Part of the Formstone Library. 
  * http://formstone.it/stepper/ 
  * 
@@ -40,6 +40,28 @@
 		
 		/**
 		 * @method 
+		 * @name destroy
+		 * @description Removes instance of plugin
+		 * @example $(".target").stepper("destroy");
+		 */
+		destroy: function() {
+			return $(this).each(function(i) {
+				var $input = $(this),
+					$stepper = $input.parent(".stepper");
+				
+				// Unbind click events
+				$stepper.off(".stepper")
+						.find(".stepper-arrow")
+						.remove();
+				
+				// Restore DOM
+				$input.unwrap()
+					  .removeClass("stepper-input");
+			});
+		},
+		
+		/**
+		 * @method 
 		 * @name disable
 		 * @description Disables target instance
 		 * @example $(".target").stepper("disable");
@@ -67,28 +89,6 @@
 				
 				$input.attr("disabled", null);
 				$stepper.removeClass("disabled");
-			});
-		},
-		
-		/**
-		 * @method 
-		 * @name destroy
-		 * @description Removes instance of plugin
-		 * @example $(".target").stepper("destroy");
-		 */
-		destroy: function() {
-			return $(this).each(function(i) {
-				var $input = $(this),
-					$stepper = $input.parent(".stepper");
-				
-				// Unbind click events
-				$stepper.off(".stepper")
-						.find(".stepper-arrow")
-						.remove();
-				
-				// Restore DOM
-				$input.unwrap()
-					  .removeClass("stepper-input");
 			});
 		}
 	};
