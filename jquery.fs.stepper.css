@@ -1,5 +1,5 @@
 /* 
- * Stepper v3.0.0 - 2014-01-12 
+ * Stepper v3.0.1 - 2014-01-12 
  * A jQuery plugin for cross browser number inputs. Part of the Formstone Library. 
  * http://formstone.it/stepper/ 
  * 
