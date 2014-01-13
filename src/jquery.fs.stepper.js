@@ -1,6 +1,6 @@
 ;(function ($, window) {
 	"use strict";
-	
+
 	/**
 	 * @options
 	 * @param customClass [string] <''> "Class applied to instance"
@@ -8,23 +8,23 @@
 	var options = {
 		customClass: ""
 	};
-	
+
 	var pub = {
-		
+
 		/**
-		 * @method 
+		 * @method
 		 * @name defaults
 		 * @description Sets default plugin options
 		 * @param opts [object] <{}> "Options object"
-		 * @example $(".target").stepper("defaults", opts);
+		 * @example $.stepper("defaults", opts);
 		 */
 		defaults: function(opts) {
 			options = $.extend(options, opts || {});
 			return $(this);
 		},
-		
+
 		/**
-		 * @method 
+		 * @method
 		 * @name destroy
 		 * @description Removes instance of plugin
 		 * @example $(".target").stepper("destroy");
@@ -33,20 +33,20 @@
 			return $(this).each(function(i) {
 				var $input = $(this),
 					$stepper = $input.parent(".stepper");
-				
+
 				// Unbind click events
 				$stepper.off(".stepper")
 						.find(".stepper-arrow")
 						.remove();
-				
+
 				// Restore DOM
 				$input.unwrap()
 					  .removeClass("stepper-input");
 			});
 		},
-		
+
 		/**
-		 * @method 
+		 * @method
 		 * @name disable
 		 * @description Disables target instance
 		 * @example $(".target").stepper("disable");
@@ -55,14 +55,14 @@
 			return $(this).each(function(i) {
 				var $input = $(this),
 					$stepper = $input.parent(".stepper");
-				
+
 				$input.attr("disabled", "disabled");
 				$stepper.addClass("disabled");
 			});
 		},
-		
+
 		/**
-		 * @method 
+		 * @method
 		 * @name enable
 		 * @description Enables target instance
 		 * @example $(".target").stepper("enable");
@@ -71,13 +71,13 @@
 			return $(this).each(function(i) {
 				var $input = $(this),
 					$stepper = $input.parent(".stepper");
-				
+
 				$input.attr("disabled", null);
 				$stepper.removeClass("disabled");
 			});
 		}
 	};
-	
+
 	/**
 	 * @method private
 	 * @name _init
@@ -87,7 +87,7 @@
 	function _init(opts) {
 		// Local options
 		opts = $.extend({}, options, opts || {});
-		
+
 		// Apply to each element
 		var $items = $(this);
 		for (var i = 0, count = $items.length; i < count; i++) {
@@ -95,7 +95,7 @@
 		}
 		return $items;
 	}
-	
+
 	/**
 	 * @method private
 	 * @name _build
@@ -107,17 +107,17 @@
 		if (!$input.hasClass("stepper-input")) {
 			// EXTEND OPTIONS
 			opts = $.extend({}, opts, $input.data("stepper-options"));
-			
+
 			// HTML5 attributes
 			var min = parseFloat($input.attr("min")),
 				max = parseFloat($input.attr("max")),
 				step = parseFloat($input.attr("step")) || 1;
-			
+
 			// Modify DOM
 			$input.addClass("stepper-input")
 				  .wrap('<div class="stepper ' + opts.customClass + '" />')
 				  .after('<span class="stepper-arrow up">Up</span><span class="stepper-arrow down">Down</span>');
-			
+
 			// Store data
 			var $stepper = $input.parent(".stepper"),
 				data = $.extend({
@@ -129,20 +129,20 @@
 					step: (typeof step !== undefined && !isNaN(step)) ? step : 1,
 					timer: null
 				}, opts);
-			
+
 			data.digits = _digits(data.step);
-			
+
 			// Check disabled
 			if ($input.is(":disabled")) {
 				$stepper.addClass("disabled");
 			}
-			
+
 			// Bind click events
 			$stepper.on("touchstart.stepper mousedown.stepper", ".stepper-arrow", data, _onMouseDown)
 					.data("stepper", data);
 		}
 	}
-	
+
 	/**
 	 * @method private
 	 * @name _onMouseDown
@@ -152,24 +152,24 @@
 	function _onMouseDown(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		
+
 		// Make sure we reset the states
 		_onMouseUp(e);
-		
+
 		var data = e.data;
-		
+
 		if (!data.$input.is(':disabled') && !data.$stepper.hasClass("disabled")) {
 			var change = $(e.target).hasClass("up") ? data.step : -data.step;
-			
+
 			data.timer = _startTimer(data.timer, 125, function() {
 				_step(data, change, false);
 			});
 			_step(data, change);
-			
+
 			$("body").on("touchend.stepper mouseup.stepper", data, _onMouseUp);
 		}
 	}
-	
+
 	/**
 	 * @method private
 	 * @name _onMouseUp
@@ -179,14 +179,14 @@
 	function _onMouseUp(e) {
 		e.preventDefault();
 		e.stopPropagation();
-		
+
 		var data = e.data;
-		
+
 		_clearTimer(data.timer);
-		
+
 		$("body").off(".stepper");
 	}
-	
+
 	/**
 	 * @method private
 	 * @name _step
@@ -197,7 +197,7 @@
 	function _step(data, change) {
 		var originalValue = parseFloat(data.$input.val()),
 			value = change;
-		
+
 		if (typeof originalValue === undefined || isNaN(originalValue)) {
 			if (data.min !== false) {
 				value = data.min;
@@ -209,27 +209,27 @@
 		} else {
 			value += originalValue;
 		}
-		
+
 		var diff = (value - data.min) % data.step;
 		if (diff !== 0) {
 			value -= diff;
 		}
-		
+
 		if (data.min !== false && value < data.min) {
 			value = data.min;
 		}
 		if (data.max !== false && value > data.max) {
 			value -= data.step;
 		}
-		
+
 		if (value !== originalValue) {
 			value = _round(value, data.digits);
-			
+
 			data.$input.val(value)
 					   .trigger("change");
 		}
 	}
-	
+
 	/**
 	 * @method private
 	 * @name _startTimer
@@ -242,7 +242,7 @@
 		_clearTimer(timer);
 		return setInterval(callback, time);
 	}
-	
+
 	/**
 	 * @method private
 	 * @name _clearTimer
@@ -255,7 +255,7 @@
 			timer = null;
 		}
 	}
-	
+
 	/**
 	 * @method private
 	 * @name _digits
@@ -271,7 +271,7 @@
 			return 0;
 		}
 	}
-	
+
 	/**
 	 * @method private
 	 * @name _round
@@ -284,7 +284,7 @@
 		var exp = Math.pow(10, digits);
 		return Math.round(value * exp) / exp;
 	}
-	
+
 	$.fn.stepper = function(method) {
 		if (pub[method]) {
 			return pub[method].apply(this, Array.prototype.slice.call(arguments, 1));
@@ -292,5 +292,11 @@
 			return _init.apply(this, arguments);
 		}
 		return this;
+	};
+
+	$.stepper = function(method) {
+		if (method === "defaults") {
+			pub.defaults.apply(this, Array.prototype.slice.call(arguments, 1));
+		}
 	};
 })(jQuery, this);
