@@ -3,23 +3,23 @@
 	<head>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    	
+
 		<title>Stepper Demo</title>
-		
+
 		<link href="http://formstone.it/css/demo.css" rel="stylesheet" type="text/css" media="all" />
-		
+
 		<!--[if LTE IE 8]>
 			<link href="http://formstone.it/css/demo.ie.css" rel="stylesheet" type="text/css" media="all" />
 		<![endif]-->
-		
+
 		<script src="http://formstone.it/js/demo.js"></script>
-		
+
 		<link href="../jquery.fs.stepper.css" rel="stylesheet" type="text/css" media="all" />
-		<script src="../src/jquery.fs.stepper.js"></script>
-		
+		<script src="../jquery.fs.stepper.js"></script>
+
 		<style>
 		</style>
-		
+
 		<script>
 			$(document).ready(function() {
 				$("input[type=number]").stepper();
@@ -42,32 +42,32 @@
 					<br />
 					<a href="http://formstone.it/stepper/" class="button">View Documentation</a>
 				</header>
-				
+
 				<!-- BASIC -->
 				<h2>Basic</h2>
 				<p>The most basic method is simply applying the Stepper plugin:</p>
-				
+
 				<pre class="example"><code class="language-markup">&lt;input type="number" /&gt;</code></pre>
 				<pre class="example"><code class="language-javascript">$("input[type='number']").stepper();</code></pre>
-				
+
 				<h5>Demo</h5>
 				<form action="#" method="GET">
 					<input type="number" value="" />
 				</form>
-				
+
 				<br />
-				
+
 				<!-- RANGES -->
 				<h2>Ranges</h2>
 				<p>Stepper will automatically detect the minimum, maximum and increment values based on the min, max and step attributes:</p>
-				
+
 				<pre class="example"><code class="language-markup">&lt;input type="number" min="2" max="20" step="2" /&gt;</code></pre>
-				
+
 				<h5>Demo</h5>
 				<form action="#" method="GET">
 					<input type="number" min="2" max="20" step="2" />
 				</form>
-				
+
 			</div>
 		</article>
 	</body>
