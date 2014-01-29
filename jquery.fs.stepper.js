@@ -1,5 +1,5 @@
 /* 
- * Stepper v3.0.2 - 2014-01-13 
+ * Stepper v3.0.3 - 2014-01-29 
  * A jQuery plugin for cross browser number inputs. Part of the Formstone Library. 
  * http://formstone.it/stepper/ 
  * 
@@ -39,17 +39,18 @@
 		 */
 		destroy: function() {
 			return $(this).each(function(i) {
-				var $input = $(this),
-					$stepper = $input.parent(".stepper");
+				var data = $(this).data("stepper");
 
-				// Unbind click events
-				$stepper.off(".stepper")
-						.find(".stepper-arrow")
-						.remove();
+				if (data !== null) {
+					// Unbind click events
+					data.$stepper.off(".stepper")
+								 .find(".stepper-arrow")
+								 .remove();
 
-				// Restore DOM
-				$input.unwrap()
-					  .removeClass("stepper-input");
+					// Restore DOM
+					data.$input.unwrap()
+							   .removeClass("stepper-input");
+				}
 			});
 		},
 
@@ -61,11 +62,12 @@
 		 */
 		disable: function() {
 			return $(this).each(function(i) {
-				var $input = $(this),
-					$stepper = $input.parent(".stepper");
+				var data = $(this).data("stepper");
 
-				$input.attr("disabled", "disabled");
-				$stepper.addClass("disabled");
+				if (data !== null) {
+					data.$input.attr("disabled", "disabled");
+					data.$stepper.addClass("disabled");
+				}
 			});
 		},
 
@@ -77,11 +79,12 @@
 		 */
 		enable: function() {
 			return $(this).each(function(i) {
-				var $input = $(this),
-					$stepper = $input.parent(".stepper");
+				var data = $(this).data("stepper");
 
-				$input.attr("disabled", null);
-				$stepper.removeClass("disabled");
+				if (data !== null) {
+					data.$input.attr("disabled", null);
+					data.$stepper.removeClass("disabled");
+				}
 			});
 		}
 	};
