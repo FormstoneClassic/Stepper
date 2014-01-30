@@ -4,13 +4,15 @@
 	/**
 	 * @options
 	 * @param customClass [string] <''> "Class applied to instance"
-	 * @param arrowUpLabel [string] <'Up'> "Up arrow label"
-	 * @param arrowDownLabel [string] <'Down'> "Down arrow label"
+	 * @param lables.up [string] <'Up'> "Up arrow label"
+	 * @param lables.down [string] <'Down'> "Down arrow label"
 	 */
 	var options = {
 		customClass: "",
-		arrowUpLabel: "Up",
-		arrowDownLabel: "Down"
+		labels: {
+			up: "Up",
+			down: "Down"
+		}
 	};
 
 	var pub = {
@@ -123,7 +125,7 @@
 			// Modify DOM
 			$input.addClass("stepper-input")
 				  .wrap('<div class="stepper ' + opts.customClass + '" />')
-				  .after('<span class="stepper-arrow up">' + opts.arrowUpLabel + '</span><span class="stepper-arrow down">' + opts.arrowUpLabel + '</span>');
+				  .after('<span class="stepper-arrow up">' + opts.labels.up + '</span><span class="stepper-arrow down">' + opts.labels.down + '</span>');
 
 			// Store data
 			var $stepper = $input.parent(".stepper"),

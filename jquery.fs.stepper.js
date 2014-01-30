@@ -1,5 +1,5 @@
 /* 
- * Stepper v3.0.3 - 2014-01-29 
+ * Stepper v3.0.4 - 2014-01-30 
  * A jQuery plugin for cross browser number inputs. Part of the Formstone Library. 
  * http://formstone.it/stepper/ 
  * 
@@ -12,9 +12,15 @@
 	/**
 	 * @options
 	 * @param customClass [string] <''> "Class applied to instance"
+	 * @param lables.up [string] <'Up'> "Up arrow label"
+	 * @param lables.down [string] <'Down'> "Down arrow label"
 	 */
 	var options = {
-		customClass: ""
+		customClass: "",
+		labels: {
+			up: "Up",
+			down: "Down"
+		}
 	};
 
 	var pub = {
@@ -127,7 +133,7 @@
 			// Modify DOM
 			$input.addClass("stepper-input")
 				  .wrap('<div class="stepper ' + opts.customClass + '" />')
-				  .after('<span class="stepper-arrow up">Up</span><span class="stepper-arrow down">Down</span>');
+				  .after('<span class="stepper-arrow up">' + opts.labels.up + '</span><span class="stepper-arrow down">' + opts.labels.down + '</span>');
 
 			// Store data
 			var $stepper = $input.parent(".stepper"),
