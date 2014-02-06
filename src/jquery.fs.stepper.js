@@ -39,7 +39,7 @@
 			return $(this).each(function(i) {
 				var data = $(this).data("stepper");
 
-				if (data !== null) {
+				if (data) {
 					// Unbind click events
 					data.$stepper.off(".stepper")
 								 .find(".stepper-arrow")
@@ -62,7 +62,7 @@
 			return $(this).each(function(i) {
 				var data = $(this).data("stepper");
 
-				if (data !== null) {
+				if (data) {
 					data.$input.attr("disabled", "disabled");
 					data.$stepper.addClass("disabled");
 				}
@@ -79,7 +79,7 @@
 			return $(this).each(function(i) {
 				var data = $(this).data("stepper");
 
-				if (data !== null) {
+				if (data) {
 					data.$input.attr("disabled", null);
 					data.$stepper.removeClass("disabled");
 				}
