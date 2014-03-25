@@ -1,5 +1,5 @@
 /* 
- * Stepper v3.0.5 - 2014-02-06 
+ * Stepper v3.0.6 - 2014-03-25 
  * A jQuery plugin for cross browser number inputs. Part of the Formstone Library. 
  * http://formstone.it/stepper/ 
  * 
@@ -7,9 +7,13 @@
  */ 
 
 	.stepper { border-radius: 3px; margin: 0 0 10px 0; overflow: hidden; position: relative; width: 300px; }
-	.stepper .stepper-input { background: #F9F9F9; border: 1px solid #ccc; border-radius: 3px; color: #333; font-size: 13px; line-height: 1.2; margin: 0; overflow: hidden; padding: 9px 10px 10px; width: 100%; z-index: 49; }
+	.stepper .stepper-input { background: #F9F9F9; border: 1px solid #ccc; border-radius: 3px; color: #333; font-size: 13px; line-height: 1.2; margin: 0; overflow: hidden; padding: 9px 10px 10px; width: 100%; z-index: 49;
+		-moz-appearance: textfield;
+	}
+
 	.stepper .stepper-input::-webkit-inner-spin-button,
 	.stepper .stepper-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
 	.stepper .stepper-input:focus { background-color: #fff; }
 	.stepper .stepper-arrow { background: #eee url(jquery.fs.stepper-arrows.png) no-repeat; border: 1px solid #ccc; cursor: pointer; display: block; height: 50%; position: absolute; right: 0; text-indent: -99999px; width: 20px; z-index: 50; }
 	.stepper .stepper-arrow.up { background-position: center top; border-bottom: none; top: 0; }
