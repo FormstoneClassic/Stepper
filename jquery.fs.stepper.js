@@ -154,9 +154,34 @@
 				$stepper.addClass("disabled");
 			}
 
+			// Bind keyboard events
+			$stepper.on("keypress", '.stepper-input', data, _onKeyup);
+
 			// Bind click events
 			$stepper.on("touchstart.stepper mousedown.stepper", ".stepper-arrow", data, _onMouseDown)
 					.data("stepper", data);
+		}
+	}
+
+	/**
+	 * @method private
+	 * @name _onKeyup
+	 * @description Handles keypress event on inputs
+	 * @param e [object] "Event data"
+	 */
+	function _onKeyup(e) {
+		var data = e.data;
+
+		// if arrow up
+		if (e.keyCode == 38) {
+			_step(data, data.step);
+			// prevent only for given keys
+			e.preventDefault();
+		// if arrow down
+		} else if (e.keyCode == 40) {
+			_step(data, -data.step);
+			// prevent only for given keys
+			e.preventDefault();
 		}
 	}
 
