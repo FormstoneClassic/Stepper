@@ -1,6 +1,6 @@
 {
   "name": "stepper",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "title": "Stepper",
   "author": {
     "name": "Ben Plum",
@@ -24,12 +24,11 @@
     "ui",
     "javascript",
     "jquery",
-    "formstone",
-    "benplum"
+    "formstone"
   ],
   "docs": "http://formstone.it/stepper/",
   "demo": "http://formstone.it/stepper/",
-  "download": "https://github.com/benplum/Stepper",
-  "bugs": "https://github.com/benplum/Stepper/issues",
+  "download": "https://github.com/Formstone/Stepper",
+  "bugs": "https://github.com/Formstone/Stepper/issues",
   "homepage": "http://formstone.it/stepper/"
 }
