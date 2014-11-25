@@ -1,5 +1,5 @@
 /* 
- * Stepper v3.0.7 - 2014-05-07 
+ * Stepper v3.0.7 - 2014-11-25 
  * A jQuery plugin for cross browser number inputs. Part of the Formstone Library. 
  * http://formstone.it/stepper/ 
  * 
@@ -34,7 +34,7 @@
 		 */
 		defaults: function(opts) {
 			options = $.extend(options, opts || {});
-			return $(this);
+			return (typeof this === 'object') ? $(this) : true;
 		},
 
 		/**
