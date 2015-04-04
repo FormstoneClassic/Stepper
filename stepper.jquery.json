@@ -26,9 +26,9 @@
     "jquery",
     "formstone"
   ],
-  "docs": "http://formstone.it/stepper/",
-  "demo": "http://formstone.it/stepper/",
-  "download": "https://github.com/Formstone/Stepper",
-  "bugs": "https://github.com/Formstone/Stepper/issues",
-  "homepage": "http://formstone.it/stepper/"
+  "docs": "http://classic.formstone.it/stepper/",
+  "demo": "http://classic.formstone.it/stepper/",
+  "download": "https://github.com/FormstoneClassic/Stepper",
+  "bugs": "https://github.com/FormstoneClassic/Stepper/issues",
+  "homepage": "http://classic.formstone.it/stepper/"
 }

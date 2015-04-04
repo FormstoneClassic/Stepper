@@ -12,7 +12,7 @@
     "benplum"
   ],
   "license": "MIT",
-  "homepage": "http://formstone.it/stepper/",
+  "homepage": "http://classic.formstone.it/stepper/",
   "main": [
     "jquery.fs.stepper.js",
     "jquery.fs.stepper.css"
